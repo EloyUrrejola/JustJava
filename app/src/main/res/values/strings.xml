@@ -4,5 +4,6 @@
     <string name="action_settings">Settings</string>
 
     <string name="quantity">QUANTITY</string>
+    <string name="price">PRICE</string>
     <string name="order">ORDER</string>
 </resources>
