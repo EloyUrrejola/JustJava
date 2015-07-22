@@ -1,14 +1,14 @@
 package com.example.android.justjava;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import java.text.NumberFormat;
 
+public class MainActivity extends AppCompatActivity {
 
-public class MainActivity extends ActionBarActivity {
+    int quantity = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,9 +17,8 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void submitOrder(View view) {
-        int quantity = 1;
-        display(quantity);
-        displayPrice(quantity * 5);
+        String message = "Total: " + (quantity * 5) + " euros";
+        displayMessage(message);
     }
 
     private void display(int number) {
@@ -29,10 +28,20 @@ public class MainActivity extends ActionBarActivity {
     }
 
     /**
-     * This method displays the given price on the screen.
+     * This method displays the given text on the screen.
      */
-    private void displayPrice(int number) {
+    private void displayMessage(String message) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+        priceTextView.setText(message);
+    }
+
+    public void increase(View view) {
+        quantity ++;
+        display(quantity);
+    }
+
+    public void decrease(View view) {
+        quantity --;
+        display(quantity);
     }
 }
